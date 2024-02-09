@@ -22,19 +22,26 @@
   <body>
     <div class="container">
         <header>
-	   <img src="../images/logo_and_name.png" class="logo"/>
+	   <a href="#" onclick="menuChange(event,6)"><img src="../images/logo_and_name.png" class="logo"/></a>
            <div class="menu">
-               <div class="menuitem"><a href="#" class="menubutton menubuttonselected" onclick="menuChange(event,0)">Connect</a></div>
+               <div class="menuitem"><a href="#" class="menubutton menubuttonselected" id="menubuttonconnect" style="display:none" onclick="menuChange(event,0)">Connect</a></div>
                <div class="menuitem"><a href="#" class="menubutton" onclick="menuChange(event,1)">Features</a></div>
                <div class="menuitem"><a href="#" class="menubutton" onclick="menuChange(event,5)">About</a></div>
                <div class="menuitem"><a href="#" class="menubutton" onclick="menuChange(event,4)">Contact&nbsp;and&nbsp;Donate</a></div>
            </div>
 	   <div class="builtwith">© 2024 Built with<a href="https://pears.com/" target="_blank"><img class="pearslogo" src="../images/pears-logo.svg"></a></div>
         </header>
+        <div class="main-content" id="content6">
+	     <div class="twocolumns column1">
+		<h1>Direct, Secure and Uninterrupted Remote Access - The P2P Way</h1>
+		<p>PeerViewer is a fully peer-to-peer remote desktop applications that lets you securely access and control computers anywhere, anytime, without the need for centralized servers. It's the privacy-focused, cost-effective solution for seamless remote support and collaboration.</p>
+		<a href="https://github.com/PeerViewer/codebase/releases/" class="bigbutton regulardownloadbutton"><div>Download PeerViewer to get started</div></a>
+	    </div>
+	     <div>
+		<img src="../images/laptop.png" class="laptop"/>
+	    </div>
+	</div>
         <div class="main-content" id="content0">
-            <div class="coverremotecontrol">
-                <a href="https://github.com/PeerViewer/codebase/releases/" class="bigbutton downloadbutton"><div>Download PeerViewer to get started</div></a>
-            </div>
             <div class="column" id="column1">
                 <h2>Allow Remote Control</h2>
 		<p>
@@ -71,14 +78,6 @@
 		<!-- This gets filled up by JavaScript. -->
 		</div>
             </div>
-	</div>
-        <div class="main-content" id="content2">
-		<iframe class="contactticketform" width="1200" height="620" src="https://legend.lnbits.com/lnticket/ejBSMY2x8XfNUqPHtmoCmc" title="Create Support Ticket using lnbits"></iframe>
-		<!-- <a href="https://legend.lnbits.com/lnticket/ejBSMY2x8XfNUqPHtmoCmc">Open Form</a> -->
-	</div>
-        <div class="main-content" id="content3">
-		<!-- 605 height is needed to avoid scroll bars -->
-		 <iframe width="1200" height="610" src="https://legend.lnbits.com/tipjar/1114" title="Tip Jar"></iframe>
 	</div>
         <div class="main-content" id="content4">
 	     <div class="twocolumns column1">
@@ -144,15 +143,14 @@
     </div>
     <script>
     function adaptForWeb() {
-      Array.from(document.getElementsByClassName("coverremotecontrol")).forEach(button => {
-        button.style.display = "block";
-      });
+      menuChange(null,6);
     }
     function startup() {
-      populateFeatureGallery();
       try {
         const process = require('node:process');
         console.log(process.platform);
+        let menubuttonconnect = document.getElementById("menubuttonconnect")
+        if (menubuttonconnect) menubuttonconnect.style.display = "inline";
         runServer(); // run server automatically at startup
 	/*
         const electronVersion = process.versions.electron;
@@ -166,11 +164,12 @@
          console.log(e);
          adaptForWeb();
       }
+      populateFeatureGallery();
     }
     function menuChange(event,itemnr) {
       console.log("changing menu " + itemnr);
       // Show the right content
-      for (let i=0;i<6;i++) {
+      for (let i=0;i<7;i++) {
         let tohide = document.getElementById("content" + i)
         if (tohide) tohide.style.display = "none";
       }
@@ -180,7 +179,7 @@
       Array.from(document.getElementsByClassName("menubutton")).forEach(button => {
         button.classList.remove("menubuttonselected");
       });
-      event.target.classList.add("menubuttonselected");
+      if (event != null) event.target.classList.add("menubuttonselected");
     }
 
     function populateFeatureGallery() {

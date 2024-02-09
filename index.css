@@ -319,11 +319,18 @@ img.headericon {
     margin-left: 10%;
 }
 
+#content6 img.laptop {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    width: 55%;
+}
 #content4 img.donate {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 35%;
+    max-height: 100%;
+    max-width: 35%;
 }
 
 .twocolumns {
