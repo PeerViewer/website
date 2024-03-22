@@ -38,22 +38,31 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0;
 }
 
-footer span {
-    position: relative;
-    top: -0.75em;
+footer .footerleft {
+    float: left;
+    margin: 0 0 0.75em 1em;
 }
 
 footer a {
     color: #CAE2E9;
 }
 
+footer .footerright {
+    margin: 0.5em 1em 0 0;
+    float: right;
+}
+
 h1 {
     font-family: GothamRndMedium;
-    font-size: 42px;
+    font-size: 62px;
     margin: 0;
+}
+
+h1.about {
+    /* smaller, otherwise it doesnt fit */
+    font-size: 42px;
 }
 
 h2 {
@@ -87,13 +96,29 @@ input:focus{
     border-bottom:2px solid #fff;
 }
 
+.outermain-content {
+    display: none; /* by default, main-content is not visible until enable by the javascript menu - except content0 (see below) */
+}
+.innermain-content {
+    margin-left: 1em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#content4 .innermain-content {
+    width: 70%;
+}
+#content6 .innermain-content {
+    width: 45%;
+}
 .main-content {
     display: none; /* by default, main-content is not visible until enable by the javascript menu - except content0 (see below) */
     flex-wrap: wrap;
-    justify-content: space-around;
     align-items: stretch;
-    height: 21em;
-    padding: 2em 2em 0 2em;
+    margin-left: 1em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 #content0 {
     display: flex; /* content0 is the first menu item and visible by default */
@@ -113,29 +138,26 @@ input:focus{
     padding: 2em;
 }
 
-/* header has: logo (25%) - menu (50%) - builtwith (20%) */
 header {
     background-color: #18222E;
     color: #fff;
+    height: 1.75em;
     text-align: left;
-    padding: 0 0 0.5em 0;
+    padding: 1em;
 }
 
 header .logo {
-    margin: 1em;
-    width: 25%;
+    float: left;
+    width: 13em;
 }
 
 .menu {
-    display: inline-block;
-    position: relative;
-    top: -1em;
-    width: 71%; /* 100% - 4% margin - 25% logo */
+    text-align: right;
 }
 
 .menuitem {
     display: inline-block;
-    text-align: center;
+    font-size: 18px;
     padding-left: 4%;
 }
 
@@ -168,8 +190,15 @@ header .logo {
 	border: solid 1px;
 	padding: 1em;
 	position: absolute;
-	bottom: 1em;
+	bottom: 0em;
 	right: 1em;
+}
+
+#serverstatus {
+	left: 0em;
+}
+
+#clientstatus {
 	left: 1em;
 }
 
@@ -189,11 +218,11 @@ header .logo {
     cursor: pointer;
     border: none;
     border-radius: 0.5em;
-    margin: 1em 0;
 }
 
 .connectbutton {
     float: none;
+    margin: 1em 0 3em;
 }
 
 .bigbutton:hover {
@@ -279,7 +308,7 @@ img.headericon {
 .threecolumns {
     font-size: 15px;
     float: left;
-    padding: 1em;
+    padding: 1em 1em 0 1em;
     width: 30%;
 }
 
@@ -292,27 +321,19 @@ img.headericon {
     padding: 0;
 }
 
-#content4 {
-    height: 35em;
-    overflow-y: hidden;
-    padding: 2em 2em 0 2em;
-}
-
-#content4 .column1 {
-    margin-left: 10%;
-}
-
 #content6 img.laptop {
     position: absolute;
-    right: 10%;
-    bottom: 0;
-    width: 55%;
+    right: 2%;
+    bottom: 10%;
+    max-width: 60%;
+    max-height: 60%;
 }
+
 #content4 img.donate {
     position: absolute;
     right: 0;
     bottom: 0;
-    max-height: 100%;
+    max-height: 75%;
     max-width: 35%;
 }
 

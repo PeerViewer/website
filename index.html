@@ -28,16 +28,15 @@
                <div class="menuitem"><a href="#" class="menubutton" onclick="menuChange(event,1)">Features</a></div>
                <div class="menuitem"><a href="#" class="menubutton" onclick="menuChange(event,5)">About</a></div>
                <div class="menuitem"><a href="#" class="menubutton" onclick="menuChange(event,4)">Contact&nbsp;and&nbsp;Donate</a></div>
-	       <div class="menuitem">© 2024 Built with<a href="https://pears.com/" target="_blank"><img class="pearslogo" src="../images/pears-logo.svg"></a> <a href="https://github.com/PeerViewer/"  target="_blank"><img class="githublogo" src="../images/github-mark-white.svg"></a></div>
            </div>
         </header>
-        <div class="main-content" id="content6">
-	     <div class="twocolumns column1">
+        <div class="outermain-content" id="content6">
+	     <div class="innermain-content onecolumn">
 		<h1>Direct, Secure and Uninterrupted Remote Access - The P2P Way</h1>
 		<p>PeerViewer is a fully peer-to-peer remote desktop applications that lets you securely access and control computers anywhere, anytime, without the need for centralized servers. It's the privacy-focused, cost-effective solution for seamless remote support and collaboration.</p>
-		<a href="https://github.com/PeerViewer/codebase/releases/" class="bigbutton regulardownloadbutton"><div>Download PeerViewer to get started</div></a>
+		<a href="https://github.com/PeerViewer/codebase/releases/" class="bigbutton regulardownloadbutton" target="_blank"><div>Download PeerViewer to get started</div></a>
 	    </div>
-	     <div>
+	     <div class="">
 		<img src="../images/laptop.png" class="laptop"/>
 	    </div>
 	</div>
@@ -79,8 +78,8 @@
 		</div>
             </div>
 	</div>
-        <div class="main-content" id="content4">
-	     <div class="twocolumns column1">
+        <div class="outermain-content" id="content4">
+	     <div class="onecolumn innermain-content">
 		<h1>As you know, writing and maintaining quality software is not cheap...</h1>
 		<p>We are aiming to keep this project well-maintained, bug-free, and reliable long-term.</p>
 		<p>Therefore, your generous donations are always appreciated.</p>
@@ -94,7 +93,7 @@
 	</div>
         <div class="main-content" id="content5">
 	     <div class="onecolumn">
-	        <h1>PeerViewer is a remote desktop and support solution, completely free for unlimited personal and commercial use.</h1>
+	        <h1 class="about" id="h1about">PeerViewer is a remote desktop and support solution, completely free for unlimited personal and commercial use.</h1>
 		<p>
 		Under the hood, it uses direct (peer-to-peer) connections between the participants. This was recently made possible by the power of the <a href="https://pears.com/" target="_blank"><img class="pearslogo" src="../images/pears-logo.svg" alt="Pear Runtime Logo"/>Pear Runtime</a>.</p>
 		<!--
@@ -140,10 +139,16 @@
 		<button class="bigbutton" onClick="menuChange(event,4)">Any suggestions? Let us know!</button>
 	    </div>
 	</div>
+        <footer>
+		<span class="footerleft"><a href="https://peerviewer.org" target="_blank">PeerViewer</a> © 2024 Built with<a href="https://pears.com/" target="_blank"><img class="pearslogo" src="../images/pears-logo.svg"></a></span>
+	       <span class="footerright"><a href="https://github.com/PeerViewer/"  target="_blank"><img class="githublogo" src="../images/github-mark-white.svg"></a></span>
+	</footer>
     </div>
     <script>
     function adaptForWeb() {
       menuChange(null,6);
+      let h1about = document.getElementById("h1about")
+      if (h1about) h1about.style.fontSize = "62px";
     }
     function startup() {
       try {
